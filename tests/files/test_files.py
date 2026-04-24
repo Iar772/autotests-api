@@ -7,6 +7,8 @@ from clients.errors_schema import ValidationErrorResponseSchema, InternalErrorRe
 from clients.files.files_client import FilesClient
 from clients.files.files_schema import CreateFileRequestSchema, CreateFileResponseSchema, GetFileResponseSchema
 from fixtures.files import FileFixture
+from tools.allure.epics import AllureEpic
+from tools.allure.features import AllureFeature
 from tools.allure.tags import AllureTag
 from tools.assertions.base import assert_status_code
 from tools.assertions.files import assert_create_file_response, assert_get_file_response, \
@@ -18,6 +20,8 @@ from tools.assertions.schema import validate_json_schema
 @pytest.mark.files
 @pytest.mark.regression
 @allure.tag(AllureTag.FILES, AllureTag.REGRESSION)
+@allure.epic(AllureEpic.LMS)  # Добавили epic
+@allure.feature(AllureFeature.FILES)
 class TestFiles:
     @allure.tag(AllureTag.CREATE_ENTITY)
     @allure.title("Create file")
